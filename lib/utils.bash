@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for starkli.
 GH_REPO="https://github.com/xJonathanLEI/starkli"
 TOOL_NAME="starkli"
 TOOL_TEST="starkli --version"
@@ -63,7 +62,8 @@ install_version() {
 
 		# TODO: Assert starkli executable exists.
 		local tool_cmd
-		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
+		ls "$install_path" > /tmp/foo.lst
+		tool_cmd="starkli" # "$(echo "$TOOL_TEST" | cut -d' ' -f1)"
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
 		echo "$TOOL_NAME $version installation was successful!"
