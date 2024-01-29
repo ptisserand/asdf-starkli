@@ -35,7 +35,6 @@ list_all_versions() {
 	list_github_tags
 }
 
-
 download_release() {
 	local version filename url
 	version="$1"
@@ -80,7 +79,6 @@ install_version() {
 		fail "An error occurred while installing $TOOL_NAME $version."
 	)
 }
-
 
 # This function has been copied verbatim from rustup install script.
 check_proc() {
